@@ -1,0 +1,40 @@
+
+https://developers.google.com/drive/v3/reference/files/list
+
+https://developers.google.com/api-client-library/php/
+
+https://github.com/google/google-api-php-client
+
+https://github.com/google/google-api-php-client/blob/master/examples/simple-file-upload.php
+
+
+
+ROAD MAP:
+
+1. Create the login page, must be google login
+2. Create the database
+	create table:
+		users
+		tasks
+			id, body, ctime, priority, assignedTo, userId, deadline, projectId, 
+		project
+			id
+
+3. Create Dashboad page that shows cuurent tasks, current projects, and basic buttons
+
+
+
+
+
+
+
+
+
+
+----------
+User get ranked up or down based on how responsive he is
+    1. time took to reply to a comment
+    2. time took to finish a task
+    3. if an extention was requested.
+    4. 
+

@@ -1,23 +1,17 @@
 <?php
-//Include GP config file
-//include_once 'gpConfig.php';
-
-require_once 'gClient.php';
-
-session_start();
-//Unset token and user data from session
-unset($_SESSION['token']);
-unset($_SESSION['userInfo']);
-unset($_SESSION['login']);
+// Include FB config file
+require_once 'fbConfig.php';
 
 
-
-//Reset OAuth access token
-$gClient->revokeToken();
-
-//Destroy entire session
 session_destroy();
 
-//Redirect to homepage
+
+// Remove access token from session
+unset($_SESSION['facebook_access_token']);
+
+// Remove user data from session
+unset($_SESSION['userData']);
+
+// Redirect to the homepage
 header("Location:index.php");
 ?>

@@ -1,5 +1,8 @@
 <?php
 // Include FB config file && User class
+use Facebook\Exceptions\FacebookResponseException;
+use Facebook\Exceptions\FacebookSDKException;
+
 require_once 'fbConfig.php';
 require_once 'User.php';
 

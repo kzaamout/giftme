@@ -1,5 +1,7 @@
 <?php
 
+//test
+
 session_start();
 
 // if user is not logged in, then go to login page.

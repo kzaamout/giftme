@@ -1,14 +1,10 @@
 <?php
-// Include FB config file && User class
-use Facebook\Exceptions\FacebookResponseException;
-use Facebook\Exceptions\FacebookSDKException;
 
-require_once 'fbConfig.php';
-require_once 'User.php';
+  require_once 'fbConfig.php';
+  require_once 'User.php';
 
-if(isset($accessToken))
-{
-    
+  if(isset($accessToken))
+  {
     if(isset($_SESSION['facebook_access_token'])){
         $fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
     }else{
@@ -89,20 +85,69 @@ if(isset($accessToken))
         $output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
     }
     
-}else{
+  }else{
     // Get login url
     $loginURL = $helper->getLoginUrl($redirectURL, $fbPermissions);
     
     // Render facebook login button
-    $output = '<a href="'.htmlspecialchars($loginURL).'"><img src="../img/fblogin-btn.png"></a>';
+    $loginUrl = '<a href="'.htmlspecialchars($loginURL).'"><img src="../img/fb_login.png" alt="Login via facebook" style="width:200px;height:50px;"></a>';
 }
+
+
 ?>
-<html>
+
+<!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<html lang="en">
 <head>
-<title>Login with Facebook using PHP by CodexWorld</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>GiftMe::Login</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="../css/custom.css" rel="stylesheet">
+
+       
+    <script src="../js/stables.js" type="text/javascript"></script>
+        
+	<style>
+	</style>
 </head>
+
 <body>
-    <!-- Display login button / Facebook profile information -->
-    <div><?php echo $output; ?></div>
-</body>
-</html>
+
+  <!-- Wrapper div -->
+  <div class="container-fluid">    
+    
+    <!-- Including the navbar -->
+    <?php include 'nav.html';?>    
+    
+    <!-- Login Div -->
+    <div class="row content">
+      
+      <div class="col-md-4 sidenav"></div>
+    
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <p> Login </p>
+          </div>
+          <div class="panel-body">
+            
+            <?php echo $loginUrl; ?>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-md-4 sidenav"></div>
+      
+    </div>
+    
+  </div>
+</body>  

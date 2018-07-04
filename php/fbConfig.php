@@ -1,4 +1,5 @@
 <?php
+
 if(!session_id()){
     session_start();
 }
@@ -30,11 +31,11 @@ $helper = $fb->getRedirectLoginHelper();
 
 // Try to get access token
 try {
-    if(isset($_SESSION['facebook_access_token'])){
-        $accessToken = $_SESSION['facebook_access_token'];
-    }else{
-          $accessToken = $helper->getAccessToken();
-    }
+  if(isset($_SESSION['facebook_access_token'])){
+      $accessToken = $_SESSION['facebook_access_token'];
+  }else{
+      $accessToken = $helper->getAccessToken();
+  }
 } catch(FacebookResponseException $e) {
      echo 'Graph returned an error: ' . $e->getMessage();
       exit;

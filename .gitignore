@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 composer.*
+=======
+/.buildpath
+/.project
+>>>>>>> e99eb9bc85bf3e25fe057be67d4f711331efc45f

@@ -2,9 +2,7 @@
 // Include FB config file
 require_once 'fbConfig.php';
 
-
 session_destroy();
-
 
 // Remove access token from session
 unset($_SESSION['facebook_access_token']);

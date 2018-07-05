@@ -5,6 +5,7 @@
 
   if(isset($accessToken))
   {
+    echo "access token is set</br>";
     if(isset($_SESSION['facebook_access_token'])){
         $fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
     }else{
@@ -59,39 +60,20 @@
         'link'          => $fbUserProfile['link']
     );
     $userData = $user->checkUser($fbUserData);
+    $userData['logoutURI'] = $helper->getLogoutUrl($accessToken, $redirectURL.'logout.php');
     
     // Put user data into session
     $_SESSION['userData'] = $userData;
     
-    // Get logout url
-    $logoutURL = $helper->getLogoutUrl($accessToken, $redirectURL.'logout.php');
-    
-    // Render facebook profile data
-    if(!empty($userData)){
-        $output  = '<h2 style="color:#999999;">Facebook Profile Details</h2>';
-        $output .= '<div style="position: relative;">';
-        $output .= '<img src="'.$userData['cover'].'" />';
-        $output .= '<img style="position: absolute; top: 90%; left: 25%;" src="'.$userData['picture'].'"/>';
-        $output .= '</div>';
-        $output .= '<br/>Facebook ID : '.$userData['oauth_uid'];
-        $output .= '<br/>Name : '.$userData['first_name'].' '.$userData['last_name'];
-        $output .= '<br/>Email : '.$userData['email'];
-        $output .= '<br/>Gender : '.$userData['gender'];
-        $output .= '<br/>Locale : '.$userData['locale'];
-        $output .= '<br/>Logged in with : Facebook';
-        $output .= '<br/>Profile Link : <a href="'.$userData['link'].'" target="_blank">Click to visit Facebook page</a>';
-        $output .= '<br/>Logout from <a href="'.$logoutURL.'">Facebook</a>'; 
-    }else{
-        $output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
-    }
+    header("Location: ./index.php");
     
   }else{
     // Get login url
-    $loginURL = $helper->getLoginUrl($redirectURL, $fbPermissions);
+    $loginURL = $helper->getLoginUrl($redirectURL.'login.php', $fbPermissions);
     
     // Render facebook login button
     $loginUrl = '<a href="'.htmlspecialchars($loginURL).'"><img src="../img/fb_login.png" alt="Login via facebook" style="width:200px;height:50px;"></a>';
-}
+  }
 
 
 ?>

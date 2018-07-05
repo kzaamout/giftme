@@ -1,21 +1,31 @@
 <?php
   session_start();
 
-  //var_dump($_SESSION['userData']);    
-  var_dump($_SESSION['userData']['logoutURI']);
+  $userData = $_SESSION['userData'];
   if(!isset($_SESSION['userData'])) {
     echo "you are not looged in</br>";
     $output = '<a href="login.php">login</a>';
   } else {
-    $output = '<a href="'.$_SESSION['userData']['logoutURI'].'">logout</a>';
+    $output = '<a href="'.$userData['userData']['logoutURI'].'">logout</a>';
+    var_dump($userData);
   }
+  
+  var_dump($_SESSION['lists']);
+ 
+  
+  
 ?>
 <html>
 <head>
 <title> GiftMe::Home</title>
 </head>
 <body>
-    <!-- Display login button / Facebook profile information -->
+    <?php echo '<img style="position: absolute; top: 90%; left: 25%;" src="'.$userData['picture'].'"/>'; ?>
+    <?php echo $userData['first_name'] . " " . $userData['last_name']; ?>
+    
+    
+    
+    
     <div><?php echo $output; ?></div>
 </body>
 </html>

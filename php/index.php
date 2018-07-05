@@ -6,11 +6,11 @@
     echo "you are not looged in</br>";
     $output = '<a href="login.php">login</a>';
   } else {
-    $output = '<a href="'.$userData['userData']['logoutURI'].'">logout</a>';
+    $output = '<a href="'.$userData['logoutURI'].'">logout</a>';
     var_dump($userData);
   }
   
-  var_dump($_SESSION['lists']);
+  
  
   
   

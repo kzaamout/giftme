@@ -65,23 +65,6 @@
     // Put user data into session
     $_SESSION['userData'] = $userData;
     
-    /*remove me*/
-     try {
-    // Returns a `Facebook\FacebookResponse` object
-    $response = $fb->get(
-        '/10150808536750285',
-        $_SESSION['facebook_access_token']
-      );
-    } catch(Facebook\Exceptions\FacebookResponseException $e) {
-      echo 'Graph returned an error: ' . $e->getMessage();
-      exit;
-    } catch(Facebook\Exceptions\FacebookSDKException $e) {
-      echo 'Facebook SDK returned an error: ' . $e->getMessage();
-      exit;
-    }
-    $graphNode = $response->getGraphNode();
-    $_SESSION['lists'] =   $graphNode;
-    
     header("Location: ./index.php");
     
   }else{
@@ -89,7 +72,7 @@
     $loginURL = $helper->getLoginUrl($redirectURL.'login.php', $fbPermissions);
     
     // Render facebook login button
-    $loginUrl = '<a href="'.htmlspecialchars($loginURL).'"><img src="../img/fb_login.png" alt="Login via facebook" style="width:200px;height:50px;"></a>';
+    $facbookLoginUrl = '<a href="'.htmlspecialchars($loginURL).'"><img src="../img/fb_login.png" alt="Login via facebook" style="width:200px;height:50px;"></a>';
   }
 
 
@@ -135,11 +118,10 @@
       <div class="col-md-4">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <p> Login </p>
+            <p> Please sign in. </p>
           </div>
           <div class="panel-body">
-            
-            <?php echo $loginUrl; ?>
+            <?php echo $facbookLoginUrl; ?>
           </div>
         </div>
       </div>

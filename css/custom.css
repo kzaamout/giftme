@@ -1,3 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+html, body {
+  font-family: Lato, Arial, sans-serif;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 16px;
+}
+
+#left, #right {
+  margin-top: 20px;
+  padding-top: 20px;
+  background-color : #E8615F;
+  min-height: 400px;
+  
+  border-radius: 3px;
+}
+
+#left {
+  width: 49%;
+  float: left;
+}
+
+#right {
+  width: 49%;
+  float: right;
+}
+
+
 h1, h2, h3, h4, h5, h6 {
 	color: black;
 	}
@@ -28,4 +62,11 @@ h1, h2, h3, h4, h5, h6 {
 .small-print {
 	text-align: center;
 	}
-	
+
+.dataRow:hover { background-color:#E6E6E6 !important; }
+
+/* user profile div*/
+#divUserProfile{
+    text-align: center;
+    line-height: 0.75em;
+}

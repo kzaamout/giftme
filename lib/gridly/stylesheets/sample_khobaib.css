@@ -1,0 +1,94 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+body, html, p, h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", "Helvetica", serif;
+  font-weight: normal; }
+
+code {
+  font-family: "Consolas", "Monaco", monospace;
+  font-weight: normal; }
+
+body, html, p, code {
+  color: #888; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444; }
+
+pre {
+  overflow: scroll;
+  background: #EEE;
+  padding: 10px; }
+
+.content {
+  width: 980px;
+  margin: 80px auto; }
+
+.formats .format {
+  display: inline-block; }
+
+
+.button {
+  display: block;
+  padding: 20px;
+  width: 200px;
+  color: #FFF;
+  background: #888;
+  margin: 20px 0;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px; }
+
+pre .support.tag {
+  color: #008; }
+pre .support.attribute {
+  color: #800; }
+pre .string.value {
+  color: #080; }
+
+.example {
+  position: relative; }
+  .example .brick {
+    opacity: 1;
+    cursor: pointer;
+    position: relative; }
+    .example .brick .delete {
+      display: block;
+      color: #00F;
+      background: rgba(255, 0, 0, 0.2);
+      width: 40px;
+      height: 40px;
+      top: 0;
+      right: 0;
+      position: absolute;
+      text-align: center;
+      line-height: 40px; }
+    
+    .example .brick.small {
+      width: 500px;
+      max-width:500px;
+      max-height: 125px; 
+      height: 250px;
+      border: 1px solid black;
+      box-shadow: 2px 2px 1px #444;
+      }
+     .example .brick.large {
+      width: 750px;
+      max-width:750px;
+      max-height: 250px; 
+      height: 375px;
+      border: 3px solid black;
+      box-shadow: 4px 4px 2px #444;
+      }
+    
+    .example .brick.dragging {
+      opacity: 0.8; }
+    .example .brick {
+      background: #FFFFFF; }
